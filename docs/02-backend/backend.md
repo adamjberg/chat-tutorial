@@ -13,9 +13,13 @@ npm i express
 
 ```js
 const express = require("express");
-const messages = [];
-
 const app = express();
+
+app.use(express.json());
+
+app.use(express.static("../fe/public"));
+
+const messages = [];
 
 app.get("/api/messages", (req, res) => {
   res.json(messages);
@@ -23,6 +27,7 @@ app.get("/api/messages", (req, res) => {
 
 app.post("/api/messages", (req, res) => {
   messages.push(req.body);
+  res.sendStatus(200);
 });
 
 app.listen(8000);
@@ -35,4 +40,11 @@ app.listen(8000);
 ```bash
 # be/.gitignore
 node_modules
+```
+
+## Commit Changes
+
+```bash
+git add -A
+git commit -m "Added express API server"
 ```

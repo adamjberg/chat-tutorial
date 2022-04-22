@@ -8,6 +8,16 @@ button.innerText = "Submit";
 
 const messageList = document.createElement("div");
 
+fetch("/api/messages")
+  .then((res) => {
+    return res.json();
+  })
+  .then((messages) => {
+    for (const message of messages) {
+      messageList.append(Message(message.body));
+    }
+  });
+
 /*
   This creates a final DOM structure that looks like:
 
@@ -27,10 +37,22 @@ root.append(messageList);
 
 form.addEventListener("submit", handleSubmit);
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
 
-  messageList.append(Message(input.value));
+  const body = input.value;
+
+  await fetch("/api/messages", {
+    method: "POST",
+    body: JSON.stringify({
+      body,
+    }),
+    headers: {
+      "Content-Type": "application/json ",
+    },
+  });
+
+  messageList.append(Message(body));
 
   input.value = "";
 }

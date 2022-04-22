@@ -3,3 +3,5 @@ In this tutorial, we will build a basic chat web application.  For the first ite
 # Pre-Requisites
 
 [https://devtails.xyz/how-to-setup-your-development-environment](How to Setup Your Development Environment)
+
+Hello World Static Website
