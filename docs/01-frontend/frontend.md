@@ -1,22 +1,12 @@
-# Setup
+# Frontend
 
 ## Create Git Repository
 
 ```bash
 git init
 git branch -m main
-npm init
+mkdir fe
 ```
-
-You can hit enter through all of the prompts from `npm init`, the defaults are fine for our needs.
-
-`git add -A`
-
-This will stage all files to git.
-
-`git commit -m "Initial Commit"`
-
-This will commit the changes to git.  At this point the only file that exists should be `package.json`.
 
 ## Create `public/app.js`
 
@@ -93,6 +83,13 @@ function Message(body) {
 </html>
 ```
 
+## Commit Changes
+
+```bash
+git add -A
+git commit -m "Initial Commit"
+```
+
 ## Test the Frontend
 
 ### Install http-server
@@ -109,6 +106,6 @@ It should then be accessible via [http://localhost:8080](http://localhost:8080).
 
 ### Expected Output
 
-![](setup.png)
+![](final.png)
 
 You should be able to type a message in the input box and press enter or click the submit button to "submit" the message.  For now, the message gets added to the page below the input.  If you refresh the page any messages you created will no longer exist. The next tutorial will go over how to persist these messages using a backend.
